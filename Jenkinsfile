@@ -11,7 +11,6 @@ pipeline {
         stage('build'){
             steps {
                 echo "building"
-                replaceString()
                 helloVariable("Alice")
                 script {
                     utils.printFromFunction()
