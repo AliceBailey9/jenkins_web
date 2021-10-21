@@ -22,10 +22,8 @@ pipeline {
             parallel {
                 stage("test on windows"){
                     steps { 
-            //    sh """
-            //    cat index.html | grep "Deployed by Jenkins job: ${BUILD_NUMBER}"
-            //    """
-                    ./var/testFile.sh
+                        
+                    ./vars/testFile.sh
                     }
                 } 
                 stage("test on linux"){
