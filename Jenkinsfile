@@ -22,8 +22,7 @@ pipeline {
             parallel {
                 stage("test on windows"){
                     steps { 
-                        
-                    ./vars/testFile.sh
+                    sh "bash ./vars/testFile.sh"
                     }
                 } 
                 stage("test on linux"){
