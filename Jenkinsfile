@@ -12,5 +12,10 @@ pipeline {
                 echo "this is my step in my first stage, yay!"
             }
         }
+        stage('print environment variables'){
+            steps {
+                sh ‘printenv’
+            }
+        }
     }
 }
