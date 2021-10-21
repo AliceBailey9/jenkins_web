@@ -25,7 +25,7 @@ pipeline {
             //    sh """
             //    cat index.html | grep "Deployed by Jenkins job: ${BUILD_NUMBER}"
             //    """
-                    testFile()
+                    testFile.sh
                     }
                 } 
                 stage("test on linux"){
