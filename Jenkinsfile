@@ -1,3 +1,5 @@
+@Library('jenkins_shared') _
+
 def printFromFunction() {
     println('I am printing in a function')
 }
@@ -20,6 +22,7 @@ pipeline {
             steps {
                 echo "building"
                 replaceString()
+                hello()
             }
         }
 
