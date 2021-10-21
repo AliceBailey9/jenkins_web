@@ -1,10 +1,19 @@
+def printFromFunction() {
+    println('I am printing in a function')
+}
+
 pipeline {
     agent any 
+
+    options {
+        timestamps()
+    }
 
     stages {
         stage('build'){
             steps {
-                echo "build"
+                echo "building"
+                printFromFunction()
             }
         }
 
@@ -24,7 +33,7 @@ pipeline {
                 }
             }
         }
-        
+
         stage('deploy'){
             steps {
                 echo "deploy"
