@@ -13,7 +13,7 @@ pipeline {
                 echo "building"
                 helloVariable("Alice")
                 script {
-                    utils.printFromFunction()
+                    utils.replaceString()
                 }
             }
         }
