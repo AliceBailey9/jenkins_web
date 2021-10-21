@@ -14,7 +14,7 @@ pipeline {
         }
         stage('print environment variables'){
             steps {
-                sh ‘printenv’
+                sh "printenv"
             }
         }
     }
