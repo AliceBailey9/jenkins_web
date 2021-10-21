@@ -24,9 +24,9 @@ pipeline {
                 stage("test on windows"){
                     steps {
                          
-               sh “”"
+               sh """
                cat index.html | grep “Deployed by Jenkins job: ${BUILD_NUMBER}”
-               “”"
+               """
                         
                     
                 } 
