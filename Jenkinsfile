@@ -23,7 +23,9 @@ pipeline {
 
                 stage("test on windows"){
                     steps {
-                        echo "test on windows"
+                        script {
+                            utils.checkString()
+                        }
                     }
 
                 } 
