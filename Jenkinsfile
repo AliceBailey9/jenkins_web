@@ -22,7 +22,7 @@ pipeline {
             steps {
                 echo "building"
                 replaceString()
-                hello()
+                helloVariable("Alice")
             }
         }
 
