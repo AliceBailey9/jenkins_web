@@ -27,6 +27,20 @@ pipeline {
                 }
             }
         }
+        stage('docker build'){
+            agent {
+                docker {
+                    image "node:latest"
+                    arg "-v ${WORKSPACE}/docker:/home/node"
+                }
+            }
+            steps {
+                sh """
+                node --version > /home/node/docker_node_version
+                npm --version > /home/node/docker_npm_version
+                """
+            }
+        }
 
         stage('test'){
             parallel {
