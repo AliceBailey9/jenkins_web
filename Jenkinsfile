@@ -43,7 +43,7 @@ pipeline {
         }
         stage("Artifacts HTML"){
             steps{
-                archiveArtifacts artifacts: "build.tgz", followSymLinks: false
+                archiveArtifacts artifacts: "build.tgz", followSymlinks: false
             }
         }
 
@@ -55,7 +55,7 @@ pipeline {
     }
 post {
     always {
-       archiveArtifacts artifacts: "build.tgz", followSymLinks: false
+       archiveArtifacts artifacts: "build.tgz", followSymlinks: false
     }
 }
 }
