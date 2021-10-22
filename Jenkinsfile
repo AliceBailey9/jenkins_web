@@ -32,16 +32,30 @@ pipeline {
                 }
             }
         }
+        stage("package html"){
+            steps{
+                sh """
+                mkdir -p build
+                cp index.html build/index.html
+                tar -zcvf build.tgz build
+                """
+            }
+        }
+        stage("Artifacts HTML"){
+            steps{
+                archiveArtifacts artifacts: "build.tgz", followSymLinks: false
+            }
+        }
 
-        stage('deploy'){
+        stage('deploy/ssh copy'){
             steps {
                 sshPublisher(publishers: [sshPublisherDesc(configName: 'http', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'mv index.html www/var/index', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: 'index.html')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
             }
         }
     }
-}
 post {
     always {
-
+       archiveArtifacts artifacts: "build.tgz", followSymLinks: false
     }
+}
 }
